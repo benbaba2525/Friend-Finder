@@ -1,0 +1,19 @@
+body{
+   
+  
+    background-color: honeydew;
+}
+
+.container{
+    margin-top: 20px;
+    text-align: center;
+    background-color:  rgba(113, 241, 227, 0.81); 
+}
+
+h1{
+    font-size: 50px;
+    font-family: 'Notable', sans-serif;
+}
+h5{
+    font-family: 'Notable', sans-serif;
+}
