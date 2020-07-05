@@ -26,12 +26,12 @@
             <div class="h5-form">
               <label  for="name"><h5>What's your name ?</h5></label>
               <small class="form-text text-muted">Name Required.</small>
-              <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+              <input type="text" id="name" class="form-control" name="name" placeholder="Your Name" required>
             </div>
             <div class="h5-form">
               <label  for="image"><h5>Put a link here to a photo image</h5></label>
               <small class="form-text text-muted">Photo Required.</small>
-              <input type="text" class="form-control" name="image" placeholder="Link...." required>
+              <input type="text" id="image" class="form-control" name="image" placeholder="Link...." required>
             </div>
             <hr>
          
@@ -153,7 +153,7 @@
 
   <!-- Button trigger modal -->
         <div class="surveyBtn" >
-          <button type="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
+          <button type="submit" id="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
         </div>
   </div> 
   
@@ -165,8 +165,9 @@
   </nav>
 
   <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div id ="resultsModal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
+    <!--Modal Content-->
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title">Best Match</h1>
@@ -175,7 +176,8 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        <h5 id="matchName"></h5>
+        <img id="matchImage" src="../data/Gif/loading.gif" alt="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -188,26 +190,79 @@
 <script type = "text/JavaScript">
 // Chosen CSS
 var config = {
-	'.chosen-select'           : {},
-	'.chosen-select-deselect'  : {allow_single_deselect:true},
-	'.chosen-select-no-single' : {disable_search_threshold:10},
-	'.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
-	'.chosen-select-width'     : {width:"95%"}
+      ".chosen-select": {},
+      ".chosen-select-deselect": { allow_single_deselect: true },
+      ".chosen-select-no-single": { disable_search_threshold: 10 },
+      ".chosen-select-no-results": { no_results_text: "Oops, nothing found!" },
+      ".chosen-select-width": { width: "95%" }
+    };
+
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+
+$("#submit").on("click",function(event){
+  event.preventDefault();
+
+// Validate Form
+
+function validateForm(){
+isValid = true;
+$(".form-control").each(function(){
+ if ($(this).val() === ""){
+   isValid = false;
+ }
+});
+
+$(".chosen-select").each(function(){
+  if($(this).val() === ""){
+    isValid = false;
+  });
+  return isValid;
+});
+
 };
 
-for (var selector in config) {
-	$(selector).chosen(config[selector]);
+if(validateForm() == true){
+  var userData = {
+          name: $("#name").val(),
+          photo: $("#image").val(),
+          scores: [
+            $("#q1").val(),
+            $("#q2").val(),
+            $("#q3").val(),
+            $("#q4").val(),
+            $("#q5").val(),
+            $("#q6").val(),
+            $("#q7").val(),
+            $("#q8").val(),
+            $("#q9").val(),
+            $("#q10").val()
+          ]
+  };
+// Grab the URL of the website
+var currentURL = window.location.origin;
+
+// Ajax post the data to the friends API
+$.post(currentURL + "/api/frieds", userData, function(data){
+      // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+      $("matchName").text(data.name);
+      $("matchImage").attr("src", data.image);
+
+      // Show the modal with the best match
+      $("#resultsModal").modal("toggle");
+
+});
+
+}else{
+  alert("Please fill out all fields before submitting");
 }
+return false;
 
-
-
+});
 
 </script>
   
-
-
-
-
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
