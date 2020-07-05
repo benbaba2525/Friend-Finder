@@ -1,0 +1,36 @@
+body {
+
+    background-image: url("images/1_vYUBqmI6Q8rR_vO4BgUXOQ.jpeg");
+}
+
+.jumbotron{
+    margin-top: 80px;
+    border:10px solid rgb(79, 235, 214);
+    background-color: rgba(192, 245, 244, 0.803);
+}
+
+.display-4{
+    font-family: 'Modak', cursive;
+    font-size: 80px;
+    color:black;
+    text-align: center;
+}
+
+.lead{
+    font-family: 'Notable', sans-serif;
+    text-align: center;
+}
+
+.surveyBtn{
+    font-family: 'Notable', sans-serif;
+    text-align: center;
+    margin: auto;
+}
+
+.btn-primary:hover{
+    font-family: 'Notable', sans-serif;
+    background-color: rgb(62, 205, 15);
+    color:black;
+}
+
+
