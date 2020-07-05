@@ -153,21 +153,22 @@
 
   <!-- Button trigger modal -->
         <div class="surveyBtn" >
-          <button type="submit" id="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
+          <button type="submit"  id="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
         </div>
   </div> 
   
   <!--Footer-->
   <nav class="navbar navbar-nav fixed-bottom  navbar-center  navbar-light text-white-50 bg-dark" >
     <footer>
-      <p><a href="/api/tables"><i class="fa fa-link" aria-hidden="true" style="font-size:20px; padding:5px;"></i>  API Table Link</a>  |  <a href="/api/waitlist"><i class="fa fa-github" aria-hidden="true" style="font-size:30px; padding:5px;"></i>  GitHub Repo</a>
+      <p><a href="/api/frieds"><i class="fa fa-link" aria-hidden="true" style="font-size:20px; padding:5px;"></i>  API Table Link</a>  |  <a href="/api/waitlist"><i class="fa fa-github" aria-hidden="true" style="font-size:30px; padding:5px;"></i>  GitHub Repo</a>
     </footer>
   </nav>
 
-  <!-- Modal -->
-<div id ="resultsModal" class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+  
+<div  class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <!--Modal Content-->
+  
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title">Best Match</h1>
@@ -177,7 +178,7 @@
       </div>
       <div class="modal-body">
         <h5 id="matchName"></h5>
-        <img id="matchImage" src="../data/Gif/loading.gif" alt="">
+        <img id="matchImage"  src="../data/Gif/loading.gif" alt="">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -250,7 +251,7 @@ $.post(currentURL + "/api/frieds", userData, function(data){
       $("matchImage").attr("src", data.image);
 
       // Show the modal with the best match
-      $("#resultsModal").modal("toggle");
+      $("#myModal").modal("toggle");
 
 });
 
@@ -262,7 +263,7 @@ return false;
 });
 
 </script>
-  
+
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
