@@ -32,7 +32,43 @@ module.exports = function(app) {
   // (ex. User fills out a reservation request... this data is then sent to the server...
   // Then the server saves the data to the tableData array)
   // ---------------------------------------------------------------------------
+app.post("/api/friends", function(req,res){
 
+var bestMatch = {
+  name: "",
+  image: "",
+  friendDifference: 9999
+};
+
+var userData = req.body;
+var userScores = userData.scores;
+
+var totalDifference = 0;
+
+for (var i = 0 ; i < friends.length; i++){
+  console.log(friends[i].name);
+  totalDifference = 0;
+
+  for(var j = 0; j < friends[i].scores[j]; j++){
+
+    totalDifference += Math.abs(parseInt(userScores[j]) - parseInt(friends[i].scores[j]));
+  
+    if (totalDifference <= bestMatch.friendDifference) {
+
+      // Reset the bestMatch to be the new friend.
+      bestMatch.name = friends[i].name;
+      bestMatch.photo = friends[i].photo;
+      bestMatch.friendDifference = totalDifference;
+    }
+  
+  }
+}
+friends.push(userData);
+
+
+res.json(bestMatch);
+
+});
   
 
   // ---------------------------------------------------------------------------
