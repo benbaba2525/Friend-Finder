@@ -36,7 +36,7 @@ h5{
     padding: 15px;
 }
 
-.btn-primary:hover{
+#submit:hover{
     background-color: rgb(62, 205, 15);
     color:black;
 }

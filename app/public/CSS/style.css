@@ -1,12 +1,12 @@
 body {
 
-    background-image: url("images/1_vYUBqmI6Q8rR_vO4BgUXOQ.jpeg");
+    background-image: url("../images/background.jpeg");
 }
 
 .jumbotron{
     margin-top: 80px;
     border:10px solid rgb(79, 235, 214);
-    background-color: rgba(192, 245, 244, 0.803);
+    
 }
 
 .display-4{
@@ -27,7 +27,9 @@ body {
     margin: auto;
 }
 
-.btn-primary:hover{
+
+
+#btnSubmit:hover{
     font-family: 'Notable', sans-serif;
     background-color: rgb(62, 205, 15);
     color:black;
