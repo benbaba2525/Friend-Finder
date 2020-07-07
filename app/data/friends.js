@@ -1,7 +1,7 @@
 var friends = [
     {
       name: "Adam Levine",
-      image: "Gif/adamLevine.gif",
+      photo: "Gif/adamLevine.gif",
       scores: [
         "5",
         "1",
@@ -17,7 +17,7 @@ var friends = [
     },
     {
       name: "Bruno Mars",
-      image: "Gif/brunoMars.gif",
+      photo: "Gif/brunoMars.gif",
       scores: [
         "3",
         "5",
@@ -33,7 +33,7 @@ var friends = [
     },
     {
       name: "Justin Bieber",
-      image: "Gif/justinBieber.gif",
+      photo: "Gif/justinBieber.gif",
       scores: [
         "5",
         "2",
@@ -49,7 +49,7 @@ var friends = [
     },
     {
       name: "Lady Gaga",
-      image: "Gif/ladyGaga.gif",
+      photo: "Gif/ladyGaga.gif",
       scores: [
         "4",
         "2",
@@ -65,7 +65,7 @@ var friends = [
     },
     {
       name: "Michael Jackson",
-      image: "Gif/micheaelJackson.gif",
+      photo: "Gif/micheaelJackson.gif",
       scores: [
         "4",
         "5",
@@ -81,7 +81,7 @@ var friends = [
     },
     {
       name: "Taylor Swift",
-      image: "Gif/taylorSwift.gif",
+      photo: "Gif/taylorSwift.gif",
       scores: [
         "3",
         "3",
