@@ -43,7 +43,7 @@
       <div class="h5-form">
         <label  for="image"><h5>Put a link here to a photo image</h5></label>
         <small class="form-text text-muted">Photo Required.</small>
-        <input type="text" id="image" class="form-control" name="image" placeholder="Link...." required>
+        <input type="text" id="photo" class="form-control" name="image" placeholder="Link...." required>
       </div>
         <hr>
 
@@ -193,12 +193,12 @@
         </select>
         <hr>
         <br>
-        <br>
+        <br> 
 
         <!-- Submit Button -->
        <!-- Button trigger modal -->
        <div class="surveyBtn" >
-        <button type="submit"  id="submit" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
+        <button type="submit"  id="submit" class="btn btn-primary btn-lg"><i class="fa fa-paper-plane-o" aria-hidden="true"></i>  Submit</button>
       </div>
 
         <hr>
@@ -274,7 +274,7 @@ var config = {
             }
 
             // If all required fields are filled
-            if (validateForm()== true) {
+            if (validateForm() === true) {
                 // Create an object for the user"s data
                 var userData = {
                     name: $("#name").val(),
@@ -305,8 +305,13 @@ var config = {
 
                 });
             } else {
+            
                 alert("Please fill out all fields before submitting!");
+                // hide the modal with the best match
+                
+            
             }
+            
         });
     </script>
  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -314,6 +319,5 @@ var config = {
 </body>
 </html>
 
-</body>
 
-</html>
+
